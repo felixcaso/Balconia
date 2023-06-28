@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="BALCONIA"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/connTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Not Connected"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/whiteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="120dp"
+        android:onClick="onClickWhite"
+        android:text="White"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/offBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:onClick="onClickOff"
+        android:text="OFF"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteBtn"
+        app:layout_constraintStart_toEndOf="@+id/whiteBtn"
+        app:layout_constraintTop_toTopOf="@+id/whiteBtn" />
+
+    <Button
+        android:id="@+id/fireBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickFire"
+        android:text="Fire"
+        app:layout_constraintEnd_toEndOf="@+id/whiteBtn"
+        app:layout_constraintStart_toStartOf="@+id/whiteBtn"
+        app:layout_constraintTop_toBottomOf="@+id/whiteBtn" />
+
+    <Button
+        android:id="@+id/randomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Random"
+        app:layout_constraintEnd_toEndOf="@+id/fireBtn"
+        app:layout_constraintStart_toStartOf="@+id/fireBtn"
+        app:layout_constraintTop_toBottomOf="@+id/fireBtn" />
+
+    <Button
+        android:id="@+id/prideBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickPride"
+        android:text="Pride"
+        app:layout_constraintEnd_toEndOf="@+id/offBtn"
+        app:layout_constraintStart_toStartOf="@+id/offBtn"
+        app:layout_constraintTop_toTopOf="@+id/fireBtn" />
+
+    <Button
+        android:id="@+id/bodegaBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bodega"
+        app:layout_constraintEnd_toEndOf="@+id/prideBtn"
+        app:layout_constraintStart_toStartOf="@+id/prideBtn"
+        app:layout_constraintTop_toTopOf="@+id/randomBtn" />
+
+    <Button
+        android:id="@+id/connBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="Connect to Balconia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Gamer"
+        app:layout_constraintEnd_toEndOf="@+id/randomBtn"
+        app:layout_constraintStart_toStartOf="@+id/randomBtn"
+        app:layout_constraintTop_toBottomOf="@+id/randomBtn" />
+
+    <Button
+        android:id="@+id/customBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        app:layout_constraintEnd_toEndOf="@+id/bodegaBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bodegaBtn"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
