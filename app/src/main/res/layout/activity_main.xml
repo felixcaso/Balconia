@@ -66,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:onClick="onClickRandom"
         android:text="Random"
         app:layout_constraintEnd_toEndOf="@+id/fireBtn"
         app:layout_constraintStart_toStartOf="@+id/fireBtn"
@@ -85,6 +86,7 @@
         android:id="@+id/bodegaBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickBodega"
         android:text="Bodega"
         app:layout_constraintEnd_toEndOf="@+id/prideBtn"
         app:layout_constraintStart_toStartOf="@+id/prideBtn"
@@ -95,6 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
+        android:onClick="onClickConnect"
         android:text="Connect to Balconia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,10 +105,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/gamerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:onClick="onClickGamer"
         android:text="Gamer"
         app:layout_constraintEnd_toEndOf="@+id/randomBtn"
         app:layout_constraintStart_toStartOf="@+id/randomBtn"
@@ -115,9 +119,10 @@
         android:id="@+id/customBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickCustom"
         android:text="Custom"
         app:layout_constraintEnd_toEndOf="@+id/bodegaBtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/bodegaBtn"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/gamerBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

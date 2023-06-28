@@ -8,6 +8,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     //Attributes
@@ -30,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothSocket socket;
     private OutputStream outputStream;
 
-    private String chosenSwarm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +44,27 @@ public class MainActivity extends AppCompatActivity {
         if(!bluetoothAdapter.isEnabled()){
             turnBTOn();
         }
-        if(initConnection())
-            connTxt.setText("Connected");
+
+        if(!initConnection()) {
+            connTxt.setText("Not Connected");
+            return;
+        }
+        Runnable checkConnection = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Running connection check");
+                if(socket != null){
+                    if(socket.isConnected())
+                        connTxt.setText("Connected");
+                    else
+                        connTxt.setText("Not Connected");
+                }
+            }
+        };
+
+        ScheduledExecutorService exCheck = Executors.newScheduledThreadPool(1);
+        exCheck.scheduleAtFixedRate(checkConnection,0,1, TimeUnit.SECONDS);
+
 
     }
 
@@ -75,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         sendData("g");
     }
 
+    public void onClickCustom(View v){
+
+    }
+
     public void onClickConnect(View v){
         if(!socket.isConnected()){
             initConnection();
@@ -84,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     /*============= Bluetooth Methods ==================*/
-
-
     @SuppressLint("MissingPermission")
     public void turnBTOn() {
         if (!bluetoothAdapter.isEnabled()) {
@@ -127,17 +152,24 @@ public class MainActivity extends AppCompatActivity {
     }// end initSwarmConnection()
 
     private void sendData(String data){
-        if(data == null || !socket.isConnected())
+        if(data == null)
             return;
+
         try {
             outputStream.write(data.getBytes());
-
-        }catch(IOException e){
+        }catch(IOException e) {
             e.printStackTrace();
         }
-
-
     }//end sendData
 
 
-}
+
+
+
+
+
+
+
+
+}//end MainActivity Class
+
