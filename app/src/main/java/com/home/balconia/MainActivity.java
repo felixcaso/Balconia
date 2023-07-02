@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView connTxt;
     private ColorPicker colorPicker;
     private boolean stopThread;
-    private Button whiteBtn,offBtn,fireBtn,prideBtn,randomBtn,bodegaBtn,gamerBtn,customBtn,setBtn,backBtn;
+    private Button whiteBtn,offBtn,fireBtn,prideBtn,randomBtn,bodegaBtn,gamerBtn,customBtn,backBtn;
 
     //Bluetooth Attributes
     private final UUID UUID_PORT = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         bodegaBtn = (Button)findViewById(R.id.bodegaBtn);
         gamerBtn = (Button)findViewById(R.id.gamerBtn);
         customBtn = (Button)findViewById(R.id.customBtn);
-        setBtn = (Button)findViewById(R.id.setBtn);
         backBtn = (Button)findViewById(R.id.backBtn);
 
         whiteBtn.setVisibility(View.VISIBLE);
@@ -90,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         bodegaBtn.setVisibility(View.VISIBLE);
         customBtn.setVisibility(View.VISIBLE);
         gamerBtn.setVisibility(View.VISIBLE);
-        setBtn.setVisibility(View.INVISIBLE);
         backBtn.setVisibility(View.INVISIBLE);
     }
 
@@ -133,15 +131,9 @@ public class MainActivity extends AppCompatActivity {
         gamerBtn.setVisibility(View.INVISIBLE);
 
         colorPicker.setVisibility(View.VISIBLE);
-        setBtn.setVisibility(View.VISIBLE);
         backBtn.setVisibility(View.VISIBLE);
     }
 
-    public void onClickSet(View v){
-        String str = "custom|"+Integer.toHexString(colorPicker.getColor());
-//        System.out.println(str);
-        sendData(str);
-    }
 
     public void onClickBack(View v){
         whiteBtn.setVisibility(View.VISIBLE);
@@ -154,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         gamerBtn.setVisibility(View.VISIBLE);
 
         colorPicker.setVisibility(View.INVISIBLE);
-        setBtn.setVisibility(View.INVISIBLE);
         backBtn.setVisibility(View.INVISIBLE);
     }
 
